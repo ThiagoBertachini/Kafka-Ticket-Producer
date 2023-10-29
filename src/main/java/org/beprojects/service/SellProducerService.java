@@ -16,13 +16,13 @@ public class SellProducerService {
     private static Random random = new Random();
     private static long operationId = 0;
     private static BigDecimal ticketPrice = BigDecimal.valueOf(500);
-
     private static final String TOPIC_NAME = "ticket-sell";
+    private static final String BROKER_ADDRESS = "localhost:9092";
 
     public static void main(String[] args) throws InterruptedException {
 
         Properties properties = new Properties();
-        properties.put(ProducerConfig.BOOTSTRAP_SERVERS_CONFIG, "localhost:9092");
+        properties.put(ProducerConfig.BOOTSTRAP_SERVERS_CONFIG, BROKER_ADDRESS);
         properties.put(ProducerConfig.KEY_SERIALIZER_CLASS_CONFIG, StringSerializer.class.getName());
         properties.put(ProducerConfig.VALUE_SERIALIZER_CLASS_CONFIG, SellSerializer.class.getName());
 
